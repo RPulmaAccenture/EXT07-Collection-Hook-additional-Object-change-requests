@@ -99,28 +99,30 @@ AS
 		WHERE compile_designator = p_get_plan_name;
 	  
 BEGIN
-  v_step := 1;
-  EXECUTE IMMEDIATE 'TRUNCATE TABLE msc.msc_user_notes';
-  
-  v_step := 2;  
+  v_step := 1;  
   -- Get DB Link from VCP to EBS
   OPEN c_dbLink;
   FETCH c_dbLink 
   INTO dbLink;
   CLOSE c_dbLink;
 
-  v_step := 3;  
+  v_step := 2;  
   OPEN c_get_org_id (p_org_code); 
   FETCH c_get_org_id 
   INTO v_org_id;
   CLOSE c_get_org_id;
  
-  v_step := 4; 
+  v_step := 3; 
   OPEN c_get_plan_id (p_plan_name); 
   FETCH c_get_plan_id 
   INTO v_plan_id;
   CLOSE c_get_plan_id;
- 
+  
+  v_step := 4;   
+  DELETE FROM msc.msc_user_notes
+  WHERE plan_id = v_plan_id;
+  COMMIT;
+   
   v_step := 5;
   v_user_id := FND_GLOBAL.USER_ID;
   query_str := 'SELECT MSC_USER_NOTES_S.nextval NOTE_ID
