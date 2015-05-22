@@ -1,0 +1,28 @@
+Command to Execute the package of collection hook. 
+
+
+1.Open Unix. 
+2.Move the MSC_CL_CLEANSE_PKG.pkb to /u01/oracle/apps/apps_st/appl/xxnbty/12.0.0/admin/sql using WINSCP and execute the command below in the UNIX.
+
+
+sqlplus -s USERNAME/PASSWORD
+
+@/u01/oracle/apps/apps_st/appl/xxnbty/12.0.0/admin/sql/MSC_CL_CLEANSE_PKG.pkb
+
+
+3.Move the XXNBTY_MSC_EXT07_COLL_HOOK_PKG.pks and XXNBTY_MSC_EXT07_COLL_HOOK_PKG.pkb to /u01/oracle/apps/apps_st/appl/xxnbty/12.0.0/admin/sql using WINSCP and execute the command below in the UNIX.
+
+sqlplus -s USERNAME/PASSWORD
+
+@/u01/oracle/apps/apps_st/appl/xxnbty/12.0.0/admin/sql/XXNBTY_MSC_EXT07_COLL_HOOK_PKG.pks
+
+@/u01/oracle/apps/apps_st/appl/xxnbty/12.0.0/admin/sql/XXNBTY_MSC_EXT07_COLL_HOOK_PKG.pkb
+
+
+4.Move the XXNBTY_EXT07_CP.ldt to /u01/oracle/apps/apps_st/appl/xxnbty/12.0.0/admin/import using WINSCP and execute the command below in the UNIX.
+NOTE: Please make sure to update the password.
+
+cd /u01/oracle/apps/apps_st/appl/xxnbty/12.0.0/admin/import
+
+FNDLOAD apps/PASSWORD 0 Y UPLOAD $FND_TOP/patch/115/import/afcpprog.lct XXNBTY_EXT07_CP.ldt CUSTOM_MODE=FORCE
+
