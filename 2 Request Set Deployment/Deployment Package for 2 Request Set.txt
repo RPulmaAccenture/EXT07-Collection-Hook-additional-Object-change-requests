@@ -1,0 +1,26 @@
+The following are the steps to deploy the Updated Request Set XXNBTY Daily Planning Request Set – MRP and XXNBTY Planning Request Set - MPS AND MRP:
+
+
+1.Command to upload FND FILES
+NOTE: Please make sure to update the password. thanks!
+
+Move the LDT files to /u01/oracle/apps/apps_st/appl/xxnbty/12.0.0/admin/import and execute the following commands:
+
+cd /u01/oracle/apps/apps_st/appl/xxnbty/12.0.0/admin/import
+
+--FOR XXNBTY Daily Planning Request Set - MRP :
+
+FNDLOAD apps/PASSWORD 0 Y UPLOAD $FND_TOP/patch/115/import/afcprset.lct XXNBTY_DAILY_PLANNING_REQUEST_RS.ldt UPLOAD_MODE=REPLACE CUSTOM_MODE=FORCE
+
+FNDLOAD apps/PASSWORD 0 Y UPLOAD $FND_TOP/patch/115/import/afcprset.lct XXNBTY_DAILY_PLANNING_REQUEST_RL.ldt UPLOAD_MODE=REPLACE CUSTOM_MODE=FORCE
+
+FNDLOAD apps/PASSWORD 0 Y UPLOAD $FND_TOP/patch/115/import/afcpreqg.lct XXNBTY_DAILY_PLANNING_REQUEST_RG.ldt UPLOAD_MODE=REPLACE CUSTOM_MODE=FORCE
+
+
+--FOR XXNBTY Planning Request Set - MPS AND MRP:
+
+FNDLOAD apps/PASSWORD 0 Y UPLOAD $FND_TOP/patch/115/import/afcprset.lct XXNBTY_Planning_MPS_MRP_RS.ldt UPLOAD_MODE=REPLACE CUSTOM_MODE=FORCE
+
+FNDLOAD apps/PASSWORD 0 Y UPLOAD $FND_TOP/patch/115/import/afcprset.lct XXNBTY_Planning_MPS_MRP_RL.ldt UPLOAD_MODE=REPLACE CUSTOM_MODE=FORCE
+
+FNDLOAD apps/PASSWORD 0 Y UPLOAD $FND_TOP/patch/115/import/afcpreqg.lct XXNBTY_Planning_MPS_MRP_RG.ldt UPLOAD_MODE=REPLACE CUSTOM_MODE=FORCE
